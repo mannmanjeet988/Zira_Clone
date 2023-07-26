@@ -146,3 +146,39 @@ background-color: transparent;
      right: 10px;
      cursor: pointer;
 }
+
+.card {
+    background-color: white;
+    padding: 5px;
+    border-radius: 3px;
+    box-shadow: 1px 1px 0px 1px #5e6c8424 ;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.card .task-name {
+    font-weight: 500 ;
+    font-size: 18px;
+}
+.card .description {
+    font-size: 14px;
+}
+.card .status {
+    font-size: 12px;
+}
+.card .status-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.card .assignee::before {
+    display: inline-block;
+    content: attr(data-short-name);    
+    padding: 5px;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    border-radius: 50%;
+    background-color: orange;
+}
