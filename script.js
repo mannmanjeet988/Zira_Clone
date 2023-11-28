@@ -40,7 +40,7 @@ const newModal =document.createElement("div");
 newModal.className = "modal";
 newModal.id= "modal";
 newModal.innerHTML = `<div class="modal-body">
-        <form>
+        <form class="modal-form">
             <span class="material-icons close" onclick="closeModal()">close</span>
             <h4>Add Task</h4>
             <input type="text" name="taskName" placeholder="Task name" required>
@@ -96,7 +96,7 @@ function addNewTask(task) {
             <p class="description">${task.description}</p>
             <div class="status-container">
                 <p data-short-name="${nickName}" class="assignee">${task.assignee}</p>
-                <p class="status">${statusMapping[task.status]}</p>
+                <p class="status" id="status">${statusMapping[task.status]}</p>
             </div>`;
         const box = document.getElementById(task.status)
         box.appendChild(card);
@@ -113,8 +113,8 @@ function addNewTask(task) {
         }
         closeModal();
         addNewTask(userData);
+        formElement.reset();
     }
-
 
 //to prevent default behaviour of sumit button of form
 createIssueButton.addEventListener("click" , () => {
@@ -125,3 +125,43 @@ createIssueButton.addEventListener("click" , () => {
 })
 
 
+const boxes = document.getElementsByClassName("box");
+
+for(let i = 0 ; i < boxes.length; i++) {
+    let box = boxes[i] ;
+
+    box.addEventListener("dragenter", () => {
+        // box.className = "box active-box" // "box"
+        console.log("Item entered")
+        box.classList.add("active-box") // ""
+    })
+    box.addEventListener("dragleave", () => {
+        console.log("item left")
+        box.classList.remove("active-box");
+    })
+    box.addEventListener("dragover", (e) => e.preventDefault())
+
+    box.addEventListener("drop", (e) => {
+        e.preventDefault();
+        if(box.id === "COMPLETED"){
+            activeDraggedElement.draggable ="false" ; // "false" => Boolean("false") => true
+        }
+        console.log(activeDraggedElement)
+       
+        box.appendChild(activeDraggedElement);
+    });
+}
+
+/*
+const formElement = document.getElementsByClassName("modal-form")
+    const userData = {
+        taskName: formElement["taskName"].value.trim(),
+        assignee: formElement["assignee"].value.trim(),
+        status: formElement["status"].value,
+        description: formElement["description"].value.trim()
+    }  
+
+ const statusAfterDrag= document.getElementById("status");
+       statusAfterDrag.textContent=upadated;
+
+*/

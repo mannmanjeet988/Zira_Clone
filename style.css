@@ -4,13 +4,31 @@
     font-family: 'Poppins', sans-serif;
 }
 
+.top-container{
+    width:200px;
+   margin-left:auto;
+   margin-right: auto;
+   border-radius: 30px;
+   border: 1px solid black;
+   padding:10px;
+   text-Align: center;
+   background-color: #5e6c841e;
+   margin-top: 20px;
+   margin-bottom: 1rem;
+   font-weight: 500;
+}
+
 .main-container{
-min-height:400px;
+min-height:300px;
 /* border: 2px solid black; */
 display: flex;
 gap: 50px;
 padding:20px;
 justify-content: space-evenly;
+overflow-y: hidden;
+margin-left: auto;
+margin-right: auto;
+max-height: auto;
 }
 
 .box{
@@ -18,10 +36,11 @@ justify-content: space-evenly;
     flex-direction: column;
     gap:5px;
     width:300px;
-    height: 200px;
-    background-color: #F4F5F7;
+    min-height: 100px;
+    background-color: #5e6c841e;
     border-radius: 10px;
     padding: 20px 10px;
+    max-height: auto;
 }
 
 .title-container{
@@ -131,6 +150,10 @@ background-color: transparent;
     border: 1px solid ;
 }
 
+.modal textarea{
+    text-align: left;
+}
+
 .modal button{
     background-color: #0052CC;
     color: white ;
@@ -155,6 +178,7 @@ background-color: transparent;
     display: flex;
     flex-direction: column;
     gap: 10px;
+    max-width: fit-content;
 }
 
 .card .task-name {
@@ -163,6 +187,9 @@ background-color: transparent;
 }
 .card .description {
     font-size: 14px;
+    text-align: left;
+
+
 }
 .card .status {
     font-size: 12px;
